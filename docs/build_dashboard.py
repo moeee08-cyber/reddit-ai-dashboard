@@ -7,7 +7,7 @@ from pathlib import Path
 
 DASHBOARD_DIR = Path(__file__).resolve().parent
 CATALOG_PATH = DASHBOARD_DIR / "figure_catalog.csv"
-OUTPUT_PATH = DASHBOARD_DIR / "visual_0805.html" # change_name
+OUTPUT_PATH = DASHBOARD_DIR / "index.html"
 
 
 def read_catalog() -> list[dict[str, str]]:
