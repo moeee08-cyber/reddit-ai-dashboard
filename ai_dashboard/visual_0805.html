@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reddit AI Discussion Dashboard</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f3f5f7; color: #263238; font-family: Arial, Helvetica, sans-serif; }
+    header { padding: 30px 5%; background: #263238; color: white; }
+    header h1 { margin: 0; font-size: 30px; }
+    header p { margin: 9px 0 0; color: #d5dde1; }
+    nav { position: sticky; top: 0; z-index: 10; padding: 14px 5%; background: white; box-shadow: 0 2px 9px rgba(0,0,0,.09); }
+    nav a { margin-right: 25px; color: #263238; text-decoration: none; font-weight: 700; }
+    main { width: min(1500px, 96%); margin: 30px auto 60px; }
+    .main-section { margin-bottom: 34px; padding: 26px; border-radius: 12px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .main-section > h2 { margin: 0 0 22px; font-size: 25px; border-bottom: 3px solid #4c78a8; padding-bottom: 9px; }
+    .subsection { margin: 30px 0 10px; }
+    .subsection:first-of-type { margin-top: 5px; }
+    .subsection > h3 { margin: 0 0 16px; font-size: 20px; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(560px, 100%), 1fr)); gap: 24px; }
+    .figure-card { padding: 17px; border: 1px solid #dce3e7; border-radius: 9px; background: #fff; }
+    .figure-title-row { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+    .figure-card h3 { margin: 0; font-size: 17px; }
+    .figure-card p { min-height: 2.5em; color: #607078; line-height: 1.45; }
+    .figure-card img { display: block; width: 100%; height: auto; border-radius: 4px; }
+    .badge { flex: 0 0 auto; padding: 4px 8px; border-radius: 12px; background: #e7eef5; color: #355c7d; font-size: 12px; }
+    .selector-row { display: flex; align-items: center; gap: 13px; margin: 0 0 20px; padding: 15px; background: #eef2f4; border-radius: 8px; }
+    .selector-row label { font-weight: 700; }
+    select { min-width: 280px; padding: 10px 12px; border: 1px solid #aab7bd; border-radius: 6px; background: white; font-size: 15px; }
+    .selectable-figure .figure-card { max-width: 1250px; margin: 0 auto; }
+    .empty { color: #718087; font-style: italic; }
+    footer { padding: 25px; text-align: center; color: #718087; }
+    @media (max-width: 700px) {
+      nav a { display: inline-block; margin-bottom: 7px; }
+      .selector-row { display: block; }
+      select { width: 100%; min-width: 0; margin-top: 8px; }
+      .main-section { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Reddit AI Discussion Dashboard</h1>
+    <p>Discussion volume, sentiment, subreddit characteristics, and AI products</p>
+  </header>
+
+  <nav>
+    <a href="#overview">1. Overview</a>
+    <a href="#subreddit">2. Subreddit</a>
+    <a href="#ai-product">3. AI Product</a>
+  </nav>
+
+  <main>
+    <section id="overview" class="main-section">
+      <h2>1. Overview</h2>
+      <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-related sentence count</h3><span class="badge">count</span></div>
+      <p>Monthly number of AI-related matched sentences, separated by comments and posts.</p>
+      <img src="figures/overview/monthly_ai_related_sentence_count.png" alt="Monthly AI-related sentence count" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly average VADER sentiment</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment, separated by comments and posts.</p>
+      <img src="figures/overview/monthly_average_vader_sentiment.png" alt="Monthly average VADER sentiment" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly VADER sentiment-label distribution</h3><span class="badge">sentiment</span></div>
+      <p>Monthly shares of positive, neutral and negative AI-related sentences for comments and posts.</p>
+      <img src="figures/overview/monthly_vader_sentiment_label_share.png" alt="Monthly VADER sentiment-label distribution" loading="lazy">
+    </article>
+    </div>
+    </section>
+
+    <section id="subreddit" class="main-section">
+      <h2>2. Subreddit</h2>
+
+      <div class="subsection">
+        <h3>2.1 Year</h3>
+        
+    <div class="selector-row">
+      <label for="year-selector">Select year:</label>
+      <select id="year-selector" onchange="switchFigure('year-selector', this.value)">
+        <option value="0">2022</option><option value="1">2023</option><option value="2">2024</option><option value="3">2025</option><option value="4">2026</option>
+      </select>
+    </div>
+    <div><div id="year-selector-figure-0" class="selectable-figure year-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Top 10 subreddits discussing AI in 2022</h3><span class="badge">count</span></div>
+      <p>Subreddits with the largest number of unique AI-related posts and comments in 2022.</p>
+      <img src="figures/subreddits/top_10_subreddits_discussing_ai_2022.png" alt="Top 10 subreddits discussing AI in 2022" loading="lazy">
+    </article>
+    </div><div id="year-selector-figure-1" class="selectable-figure year-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Top 10 subreddits discussing AI in 2023</h3><span class="badge">count</span></div>
+      <p>Subreddits with the largest number of unique AI-related posts and comments in 2023.</p>
+      <img src="figures/subreddits/top_10_subreddits_discussing_ai_2023.png" alt="Top 10 subreddits discussing AI in 2023" loading="lazy">
+    </article>
+    </div><div id="year-selector-figure-2" class="selectable-figure year-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Top 10 subreddits discussing AI in 2024</h3><span class="badge">count</span></div>
+      <p>Subreddits with the largest number of unique AI-related posts and comments in 2024.</p>
+      <img src="figures/subreddits/top_10_subreddits_discussing_ai_2024.png" alt="Top 10 subreddits discussing AI in 2024" loading="lazy">
+    </article>
+    </div><div id="year-selector-figure-3" class="selectable-figure year-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Top 10 subreddits discussing AI in 2025</h3><span class="badge">count</span></div>
+      <p>Subreddits with the largest number of unique AI-related posts and comments in 2025.</p>
+      <img src="figures/subreddits/top_10_subreddits_discussing_ai_2025.png" alt="Top 10 subreddits discussing AI in 2025" loading="lazy">
+    </article>
+    </div><div id="year-selector-figure-4" class="selectable-figure year-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Top 10 subreddits discussing AI in 2026</h3><span class="badge">count</span></div>
+      <p>Subreddits with the largest number of unique AI-related posts and comments in 2026.</p>
+      <img src="figures/subreddits/top_10_subreddits_discussing_ai_2026.png" alt="Top 10 subreddits discussing AI in 2026" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+
+      <div class="subsection">
+        <h3>2.2 Category</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual AI discussion volume by subreddit category</h3><span class="badge">count</span></div>
+      <p>Annual number of unique AI-related posts and comments in each subreddit category.</p>
+      <img src="figures/subreddits/categories/annual_ai_discussion_volume_by_category.png" alt="Annual AI discussion volume by subreddit category" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Average annual AI discussion volume per subreddit by category</h3><span class="badge">count</span></div>
+      <p>Annual AI discussion volume divided by the number of subreddits represented in each category.</p>
+      <img src="figures/subreddits/categories/average_annual_ai_discussion_per_subreddit_by_category.png" alt="Average annual AI discussion volume per subreddit by category" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual sentiment toward AI by subreddit category</h3><span class="badge">sentiment</span></div>
+      <p>Annual mean VADER compound sentiment within each subreddit category.</p>
+      <img src="figures/subreddits/categories/annual_ai_sentiment_by_category.png" alt="Annual sentiment toward AI by subreddit category" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>2.3 Demographic</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Relationship between subreddit sentiment and demographic characteristics</h3><span class="badge">sentiment</span></div>
+      <p>Subreddit-level relationships between mean AI sentiment and age, gender, partisanship, affluence, subreddit size and technology-user proportion.</p>
+      <img src="figures/subreddits/demographics/subreddit_sentiment_and_demographic_characteristics.png" alt="Relationship between subreddit sentiment and demographic characteristics" loading="lazy">
+    </article>
+    </div>
+      </div>
+    </section>
+
+    <section id="ai-product" class="main-section">
+      <h2>3. AI Product</h2>
+
+      <div class="subsection">
+        <h3>3.1 Overview</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment by AI product</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for the most frequently discussed AI products.</p>
+      <img src="figures/products/monthly_sentiment_all_top_ai_products.png" alt="Monthly sentiment by AI product" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI product sentiment panels</h3><span class="badge">sentiment</span></div>
+      <p>Separate monthly sentiment panels for the most frequently discussed AI products.</p>
+      <img src="figures/products/monthly_sentiment_ai_products_panel.png" alt="Monthly AI product sentiment panels" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>3.2 Product</h3>
+        
+    <div class="selector-row">
+      <label for="product-selector">Select AI product:</label>
+      <select id="product-selector" onchange="switchFigure('product-selector', this.value)">
+        <option value="0">ChatGPT</option><option value="1">Claude</option><option value="2">GPT</option><option value="3">Gemini</option><option value="4">Grok</option><option value="5">Stable Diffusion</option><option value="6">Llama</option><option value="7">DeepSeek</option>
+      </select>
+    </div>
+    <div><div id="product-selector-figure-0" class="selectable-figure product-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: ChatGPT</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning ChatGPT.</p>
+      <img src="figures/products/monthly_sentiment_chatgpt.png" alt="Monthly sentiment: ChatGPT" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-1" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: Claude</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning Claude.</p>
+      <img src="figures/products/monthly_sentiment_claude.png" alt="Monthly sentiment: Claude" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-2" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: GPT</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning GPT.</p>
+      <img src="figures/products/monthly_sentiment_gpt.png" alt="Monthly sentiment: GPT" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-3" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: Gemini</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning Gemini.</p>
+      <img src="figures/products/monthly_sentiment_gemini.png" alt="Monthly sentiment: Gemini" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-4" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: Grok</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning Grok.</p>
+      <img src="figures/products/monthly_sentiment_grok.png" alt="Monthly sentiment: Grok" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-5" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: Stable Diffusion</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning Stable Diffusion.</p>
+      <img src="figures/products/monthly_sentiment_stable_diffusion.png" alt="Monthly sentiment: Stable Diffusion" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-6" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: Llama</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning Llama.</p>
+      <img src="figures/products/monthly_sentiment_llama.png" alt="Monthly sentiment: Llama" loading="lazy">
+    </article>
+    </div><div id="product-selector-figure-7" class="selectable-figure product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment: DeepSeek</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean VADER compound sentiment for sentences mentioning DeepSeek.</p>
+      <img src="figures/products/monthly_sentiment_deepseek.png" alt="Monthly sentiment: DeepSeek" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+    </section>
+  </main>
+
+  <footer>Generated from figure_catalog.csv</footer>
+
+  <script>
+    function switchFigure(selectorId, selectedIndex) {
+      document.querySelectorAll('.' + selectorId + '-figure').forEach(function(element) {
+        element.style.display = 'none';
+      });
+      const selected = document.getElementById(selectorId + '-figure-' + selectedIndex);
+      if (selected) selected.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

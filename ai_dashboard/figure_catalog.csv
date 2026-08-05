@@ -1,0 +1,23 @@
+section,subsection,metric_type,title,image,selector,order,description
+AI Product,Product,sentiment,Monthly sentiment: ChatGPT,figures/products/monthly_sentiment_chatgpt.png,ChatGPT,1,Monthly mean VADER compound sentiment for sentences mentioning ChatGPT.
+AI Product,Product,sentiment,Monthly sentiment: Claude,figures/products/monthly_sentiment_claude.png,Claude,2,Monthly mean VADER compound sentiment for sentences mentioning Claude.
+AI Product,Product,sentiment,Monthly sentiment: GPT,figures/products/monthly_sentiment_gpt.png,GPT,3,Monthly mean VADER compound sentiment for sentences mentioning GPT.
+AI Product,Product,sentiment,Monthly sentiment: Gemini,figures/products/monthly_sentiment_gemini.png,Gemini,4,Monthly mean VADER compound sentiment for sentences mentioning Gemini.
+AI Product,Product,sentiment,Monthly sentiment: Grok,figures/products/monthly_sentiment_grok.png,Grok,5,Monthly mean VADER compound sentiment for sentences mentioning Grok.
+AI Product,Product,sentiment,Monthly sentiment: Stable Diffusion,figures/products/monthly_sentiment_stable_diffusion.png,Stable Diffusion,6,Monthly mean VADER compound sentiment for sentences mentioning Stable Diffusion.
+AI Product,Product,sentiment,Monthly sentiment: Llama,figures/products/monthly_sentiment_llama.png,Llama,7,Monthly mean VADER compound sentiment for sentences mentioning Llama.
+AI Product,Product,sentiment,Monthly sentiment: DeepSeek,figures/products/monthly_sentiment_deepseek.png,DeepSeek,8,Monthly mean VADER compound sentiment for sentences mentioning DeepSeek.
+AI Product,Overview,sentiment,Monthly sentiment by AI product,figures/products/monthly_sentiment_all_top_ai_products.png,,1,Monthly mean VADER compound sentiment for the most frequently discussed AI products.
+AI Product,Overview,sentiment,Monthly AI product sentiment panels,figures/products/monthly_sentiment_ai_products_panel.png,,2,Separate monthly sentiment panels for the most frequently discussed AI products.
+Subreddit,Category,count,Annual AI discussion volume by subreddit category,figures/subreddits/categories/annual_ai_discussion_volume_by_category.png,,1,Annual number of unique AI-related posts and comments in each subreddit category.
+Subreddit,Category,count,Average annual AI discussion volume per subreddit by category,figures/subreddits/categories/average_annual_ai_discussion_per_subreddit_by_category.png,,2,Annual AI discussion volume divided by the number of subreddits represented in each category.
+Subreddit,Category,sentiment,Annual sentiment toward AI by subreddit category,figures/subreddits/categories/annual_ai_sentiment_by_category.png,,3,Annual mean VADER compound sentiment within each subreddit category.
+Subreddit,Demographic,sentiment,Relationship between subreddit sentiment and demographic characteristics,figures/subreddits/demographics/subreddit_sentiment_and_demographic_characteristics.png,,1,"Subreddit-level relationships between mean AI sentiment and age, gender, partisanship, affluence, subreddit size and technology-user proportion."
+Overview,,count,Monthly AI-related sentence count,figures/overview/monthly_ai_related_sentence_count.png,,1,"Monthly number of AI-related matched sentences, separated by comments and posts."
+Overview,,sentiment,Monthly average VADER sentiment,figures/overview/monthly_average_vader_sentiment.png,,2,"Monthly mean VADER compound sentiment, separated by comments and posts."
+Overview,,sentiment,Monthly VADER sentiment-label distribution,figures/overview/monthly_vader_sentiment_label_share.png,,3,"Monthly shares of positive, neutral and negative AI-related sentences for comments and posts."
+Subreddit,Year,count,Top 10 subreddits discussing AI in 2022,figures/subreddits/top_10_subreddits_discussing_ai_2022.png,2022,1,Subreddits with the largest number of unique AI-related posts and comments in 2022.
+Subreddit,Year,count,Top 10 subreddits discussing AI in 2023,figures/subreddits/top_10_subreddits_discussing_ai_2023.png,2023,2,Subreddits with the largest number of unique AI-related posts and comments in 2023.
+Subreddit,Year,count,Top 10 subreddits discussing AI in 2024,figures/subreddits/top_10_subreddits_discussing_ai_2024.png,2024,3,Subreddits with the largest number of unique AI-related posts and comments in 2024.
+Subreddit,Year,count,Top 10 subreddits discussing AI in 2025,figures/subreddits/top_10_subreddits_discussing_ai_2025.png,2025,4,Subreddits with the largest number of unique AI-related posts and comments in 2025.
+Subreddit,Year,count,Top 10 subreddits discussing AI in 2026,figures/subreddits/top_10_subreddits_discussing_ai_2026.png,2026,5,Subreddits with the largest number of unique AI-related posts and comments in 2026.
