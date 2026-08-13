@@ -12,7 +12,67 @@ OUTPUT_PATH = DASHBOARD_DIR / "index.html"
 
 def read_catalog() -> list[dict[str, str]]:
     with CATALOG_PATH.open("r", encoding="utf-8-sig", newline="") as handle:
-        return list(csv.DictReader(handle))
+        rows = list(csv.DictReader(handle))
+    return [row for row in rows if row.get("title", "").strip()]
+
+
+def resolve_replacements(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Apply catalog change states without mutating the catalog itself.
+
+    remain: keep the existing row unchanged.
+    replaced: omit it when a same-title replacing row exists.
+    replacing: display it in place of the same-title replaced row.
+    add: append it as a new figure.
+    """
+    allowed_states = {"remain", "replaced", "replacing", "add"}
+    replacement_rows: dict[str, dict[str, str]] = {}
+    replaced_titles = {
+        row.get("title", "").strip()
+        for row in rows
+        if row.get("replace", "").strip().lower() == "replaced"
+    }
+
+    for row in rows:
+        state = row.get("replace", "").strip().lower()
+        title = row.get("title", "").strip()
+        if state not in allowed_states:
+            raise ValueError(f"Unknown replace state {state!r} for {title!r}")
+        if state == "replacing":
+            if title in replacement_rows:
+                raise ValueError(f"Multiple replacing rows found for {title!r}")
+            if title not in replaced_titles:
+                raise ValueError(
+                    f"Replacing row {title!r} has no same-title replaced row"
+                )
+            replacement_rows[title] = row
+
+    missing_replacements = replaced_titles.difference(replacement_rows)
+    if missing_replacements:
+        raise ValueError(
+            "Replaced rows without same-title replacements: "
+            + ", ".join(sorted(missing_replacements))
+        )
+
+    resolved = []
+    for row in rows:
+        state = row.get("replace", "").strip().lower()
+        title = row.get("title", "").strip()
+        if state == "replaced":
+            resolved.append(replacement_rows[title])
+        elif state in {"remain", "add"}:
+            resolved.append(row)
+        # A replacing row was already inserted at its replaced row's position.
+
+    missing_images = [
+        row.get("image", "")
+        for row in resolved
+        if not (DASHBOARD_DIR / row.get("image", "")).is_file()
+    ]
+    if missing_images:
+        raise FileNotFoundError(
+            "Catalog images not found: " + ", ".join(missing_images)
+        )
+    return resolved
 
 
 def order_value(row: dict[str, str]) -> float:
@@ -78,7 +138,8 @@ def selector_gallery(
 
 
 def main() -> None:
-    rows = read_catalog()
+    catalog_rows = read_catalog()
+    rows = resolve_replacements(catalog_rows)
     rows.sort(key=order_value)
 
     overview = [row for row in rows if row.get("section") == "Overview"]
@@ -91,9 +152,17 @@ def main() -> None:
         row for row in rows
         if row.get("section") == "Subreddit" and row.get("subsection") == "Category"
     ]
-    subreddit_demographic = [
+    subreddit_demographic_all = [
         row for row in rows
         if row.get("section") == "Subreddit" and row.get("subsection") == "Demographic"
+    ]
+    subreddit_yearly_effects = [
+        row for row in subreddit_demographic_all
+        if row.get("title", "").startswith("Year-specific regression effect of ")
+    ]
+    subreddit_demographic = [
+        row for row in subreddit_demographic_all
+        if row not in subreddit_yearly_effects
     ]
 
     product_overview = [
@@ -105,6 +174,17 @@ def main() -> None:
         row for row in rows
         if row.get("section") == "AI Product"
         and row.get("subsection") == "Product"
+    ]
+
+    mechanism_user = [
+        row for row in rows
+        if row.get("section") == "Mechanism"
+        and row.get("subsection") == "User_Cohort"
+    ]
+    mechanism_community = [
+        row for row in rows
+        if row.get("section") == "Mechanism"
+        and row.get("subsection") == "Community_Cohort"
     ]
 
     page = f"""<!doctype html>
@@ -128,6 +208,7 @@ def main() -> None:
     .subsection {{ margin: 30px 0 10px; }}
     .subsection:first-of-type {{ margin-top: 5px; }}
     .subsection > h3 {{ margin: 0 0 16px; font-size: 20px; }}
+    .nested-heading {{ margin-top: 30px !important; padding-top: 20px; border-top: 1px solid #dce3e7; }}
     .gallery {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(min(560px, 100%), 1fr)); gap: 24px; }}
     .figure-card {{ padding: 17px; border: 1px solid #dce3e7; border-radius: 9px; background: #fff; }}
     .figure-title-row {{ display: flex; align-items: start; justify-content: space-between; gap: 12px; }}
@@ -152,13 +233,14 @@ def main() -> None:
 <body>
   <header>
     <h1>Reddit AI Discussion Dashboard</h1>
-    <p>Discussion volume, sentiment, subreddit characteristics, and AI products</p>
+    <p>Discussion volume, sentiment, subreddit characteristics, AI products, and mechanisms</p>
   </header>
 
   <nav>
     <a href="#overview">1. Overview</a>
     <a href="#subreddit">2. Subreddit</a>
     <a href="#ai-product">3. AI Product</a>
+    <a href="#mechanism">4. Mechanism</a>
   </nav>
 
   <main>
@@ -183,6 +265,13 @@ def main() -> None:
       <div class="subsection">
         <h3>2.3 Demographic</h3>
         {static_gallery(subreddit_demographic)}
+
+        <h3 class="nested-heading">Year-specific Regression Effects</h3>
+        {selector_gallery(
+            subreddit_yearly_effects,
+            "yearly-effect-selector",
+            "Select predictor:",
+        )}
       </div>
     </section>
 
@@ -197,6 +286,20 @@ def main() -> None:
       <div class="subsection">
         <h3>3.2 Product</h3>
         {selector_gallery(products, "product-selector", "Select AI product:")}
+      </div>
+    </section>
+
+    <section id="mechanism" class="main-section">
+      <h2>4. Mechanism</h2>
+
+      <div class="subsection">
+        <h3>4.1 User Cohort</h3>
+        {static_gallery(mechanism_user)}
+      </div>
+
+      <div class="subsection">
+        <h3>4.2 Community Cohort</h3>
+        {static_gallery(mechanism_community)}
       </div>
     </section>
   </main>
@@ -218,7 +321,8 @@ def main() -> None:
 
     OUTPUT_PATH.write_text(page, encoding="utf-8")
     print(f"Dashboard generated: {OUTPUT_PATH}")
-    print(f"Catalog rows: {len(rows)}")
+    print(f"Raw catalog rows: {len(catalog_rows)}")
+    print(f"Displayed figures after replacement rules: {len(rows)}")
 
 
 if __name__ == "__main__":

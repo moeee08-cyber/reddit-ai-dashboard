@@ -19,6 +19,7 @@
     .subsection { margin: 30px 0 10px; }
     .subsection:first-of-type { margin-top: 5px; }
     .subsection > h3 { margin: 0 0 16px; font-size: 20px; }
+    .nested-heading { margin-top: 30px !important; padding-top: 20px; border-top: 1px solid #dce3e7; }
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(560px, 100%), 1fr)); gap: 24px; }
     .figure-card { padding: 17px; border: 1px solid #dce3e7; border-radius: 9px; background: #fff; }
     .figure-title-row { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
@@ -43,13 +44,14 @@
 <body>
   <header>
     <h1>Reddit AI Discussion Dashboard</h1>
-    <p>Discussion volume, sentiment, subreddit characteristics, and AI products</p>
+    <p>Discussion volume, sentiment, subreddit characteristics, AI products, and mechanisms</p>
   </header>
 
   <nav>
     <a href="#overview">1. Overview</a>
     <a href="#subreddit">2. Subreddit</a>
     <a href="#ai-product">3. AI Product</a>
+    <a href="#mechanism">4. Mechanism</a>
   </nav>
 
   <main>
@@ -128,13 +130,13 @@
     <article class="figure-card">
       <div class="figure-title-row"><h3>Annual AI discussion volume by subreddit category</h3><span class="badge">count</span></div>
       <p>Annual number of unique AI-related posts and comments in each subreddit category.</p>
-      <img src="figures/subreddits/categories/annual_ai_discussion_volume_by_category.png" alt="Annual AI discussion volume by subreddit category" loading="lazy">
+      <img src="figures/subreddits/categories/annual_ai_discussion_volume_by_category2.png" alt="Annual AI discussion volume by subreddit category" loading="lazy">
     </article>
     
     <article class="figure-card">
       <div class="figure-title-row"><h3>Average annual AI discussion volume per subreddit by category</h3><span class="badge">count</span></div>
       <p>Annual AI discussion volume divided by the number of subreddits represented in each category.</p>
-      <img src="figures/subreddits/categories/average_annual_ai_discussion_per_subreddit_by_category.png" alt="Average annual AI discussion volume per subreddit by category" loading="lazy">
+      <img src="figures/subreddits/categories/average_annual_ai_discussion_per_subreddit_by_category2.png" alt="Average annual AI discussion volume per subreddit by category" loading="lazy">
     </article>
     
     <article class="figure-card">
@@ -151,9 +153,86 @@
     <article class="figure-card">
       <div class="figure-title-row"><h3>Relationship between subreddit sentiment and demographic characteristics</h3><span class="badge">sentiment</span></div>
       <p>Subreddit-level relationships between mean AI sentiment and age, gender, partisanship, affluence, subreddit size and technology-user proportion.</p>
-      <img src="figures/subreddits/demographics/subreddit_sentiment_and_demographic_characteristics.png" alt="Relationship between subreddit sentiment and demographic characteristics" loading="lazy">
+      <img src="figures/subreddits/demographics/subreddit_sentiment_and_demographic_characteristics2.png" alt="Relationship between subreddit sentiment and demographic characteristics" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Demographic correlations after extreme-value removal</h3><span class="badge">sentiment</span></div>
+      <p>Subreddit-level demographic correlations after removing communities with absolute age gender or affluence z-scores above six.</p>
+      <img src="figures/subreddits/demographics/demographic_correlations_after_outlier_removal.png" alt="Demographic correlations after extreme-value removal" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Partisanship and community sentiment LOWESS curves</h3><span class="badge">sentiment</span></div>
+      <p>Separate LOWESS curves for communities with negative and positive standardized partisanship scores.</p>
+      <img src="figures/subreddits/demographics/partisanship_separate_lowess_curves.png" alt="Partisanship and community sentiment LOWESS curves" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community discussion frequency and AI valence</h3><span class="badge">sentiment</span></div>
+      <p>Relationship between logged unique AI discussion frequency and mean community VADER valence.</p>
+      <img src="figures/subreddits/demographics/discussion_frequency_and_ai_valence.png" alt="Community discussion frequency and AI valence" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>All Year Joint Regression Table</h3><span class="badge">effect</span></div>
+      <p>All Year Joint Regression Table</p>
+      <img src="figures/subreddits/demographics/all_year_joint_regression.png" alt="All Year Joint Regression Table" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community attributes and AI attitudes by year</h3><span class="badge">sentiment</span></div>
+      <p>Year-separated relationships between community attributes and mean AI sentiment with fitted curves and correlations.</p>
+      <img src="figures/subreddits/demographics/community_attributes_and_ai_attitudes_by_year.png" alt="Community attributes and AI attitudes by year" loading="lazy">
     </article>
     </div>
+
+        <h3 class="nested-heading">Year-specific Regression Effects</h3>
+        
+    <div class="selector-row">
+      <label for="yearly-effect-selector">Select predictor:</label>
+      <select id="yearly-effect-selector" onchange="switchFigure('yearly-effect-selector', this.value)">
+        <option value="0">age</option><option value="1">gender</option><option value="2">partisan</option><option value="3">affluence</option><option value="4">subreddit_size</option><option value="5">tech_user_proportion</option>
+      </select>
+    </div>
+    <div><div id="yearly-effect-selector-figure-0" class="selectable-figure yearly-effect-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Year-specific regression effect of age</h3><span class="badge">effect</span></div>
+      <p>Year-specific standardized age coefficient with a 95 percent confidence interval from the joint regression.</p>
+      <img src="figures/subreddits/demographics/year_specific_adjusted_effect_age_z.png" alt="Year-specific regression effect of age" loading="lazy">
+    </article>
+    </div><div id="yearly-effect-selector-figure-1" class="selectable-figure yearly-effect-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Year-specific regression effect of gender</h3><span class="badge">effect</span></div>
+      <p>Year-specific standardized gender coefficient with a 95 percent confidence interval from the joint regression.</p>
+      <img src="figures/subreddits/demographics/year_specific_adjusted_effect_gender_z.png" alt="Year-specific regression effect of gender" loading="lazy">
+    </article>
+    </div><div id="yearly-effect-selector-figure-2" class="selectable-figure yearly-effect-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Year-specific regression effect of partisanship</h3><span class="badge">effect</span></div>
+      <p>Year-specific standardized partisanship coefficient with a 95 percent confidence interval from the joint regression.</p>
+      <img src="figures/subreddits/demographics/year_specific_adjusted_effect_partisan_z.png" alt="Year-specific regression effect of partisanship" loading="lazy">
+    </article>
+    </div><div id="yearly-effect-selector-figure-3" class="selectable-figure yearly-effect-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Year-specific regression effect of affluence</h3><span class="badge">effect</span></div>
+      <p>Year-specific standardized affluence coefficient with a 95 percent confidence interval from the joint regression.</p>
+      <img src="figures/subreddits/demographics/year_specific_adjusted_effect_affluence_z.png" alt="Year-specific regression effect of affluence" loading="lazy">
+    </article>
+    </div><div id="yearly-effect-selector-figure-4" class="selectable-figure yearly-effect-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Year-specific regression effect of subreddit size</h3><span class="badge">effect</span></div>
+      <p>Year-specific standardized logged subreddit-size coefficient with a 95 percent confidence interval from the joint regression.</p>
+      <img src="figures/subreddits/demographics/year_specific_adjusted_effect_log_subreddit_size.png" alt="Year-specific regression effect of subreddit size" loading="lazy">
+    </article>
+    </div><div id="yearly-effect-selector-figure-5" class="selectable-figure yearly-effect-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Year-specific regression effect of technology-user proportion</h3><span class="badge">effect</span></div>
+      <p>Year-specific standardized technology-user proportion coefficient with a 95 percent confidence interval from the joint regression.</p>
+      <img src="figures/subreddits/demographics/year_specific_adjusted_effect_tech_user_proportion_mean.png" alt="Year-specific regression effect of technology-user proportion" loading="lazy">
+    </article>
+    </div></div>
+    
       </div>
     </section>
 
@@ -236,6 +315,44 @@
     </article>
     </div></div>
     
+      </div>
+    </section>
+
+    <section id="mechanism" class="main-section">
+      <h2>4. Mechanism</h2>
+
+      <div class="subsection">
+        <h3>4.1 User Cohort</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly user lifecycle sentiment and composition</h3><span class="badge">sentiment</span></div>
+      <p>Monthly sentiment lines and engagement-share bars for new old and exiting users.</p>
+      <img src="figures/subreddits/mechanism/user_cohort/monthly_user_lifecycle_sentiment_and_composition.png" alt="Monthly user lifecycle sentiment and composition" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>User sentiment and active-user count by first observed year</h3><span class="badge">sentiment</span></div>
+      <p>Annual sentiment and active-user counts separated by users&#x27; first observed discussion year.</p>
+      <img src="figures/subreddits/mechanism/user_cohort/user_first_observed_year_cohort.png" alt="User sentiment and active-user count by first observed year" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>4.2 Community Cohort</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly community lifecycle sentiment and composition</h3><span class="badge">sentiment</span></div>
+      <p>Monthly sentiment lines and engagement-share bars for new old and inactive communities.</p>
+      <img src="figures/subreddits/mechanism/community_cohort/monthly_community_lifecycle_sentiment_and_composition.png" alt="Monthly community lifecycle sentiment and composition" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community sentiment and active-community count by first observed year</h3><span class="badge">sentiment</span></div>
+      <p>Annual sentiment and active-community counts separated by communities&#x27; first observed AI-discussion year.</p>
+      <img src="figures/subreddits/mechanism/community_cohort/community_first_observed_year_cohort.png" alt="Community sentiment and active-community count by first observed year" loading="lazy">
+    </article>
+    </div>
       </div>
     </section>
   </main>
