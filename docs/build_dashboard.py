@@ -175,10 +175,23 @@ def main() -> None:
         if row.get("section") == "AI Product"
         and row.get("subsection") == "Product"
     ]
-    version_decomposition = [
+    version_regression = [
         row for row in rows
-        if row.get("section") == "AI Product"
-        and row.get("subsection") == "Version_Decomposition"
+        if row.get("section") == "Version_Decomposition"
+        and row.get("subsection") == "Regression"
+    ]
+    version_regression_standalone = version_regression[:2]
+    version_level_differences = version_regression[2:7]
+    version_specific_trends = version_regression[7:11]
+    version_mean_score = [
+        row for row in rows
+        if row.get("section") == "Version_Decomposition"
+        and row.get("subsection") == "Mean Score"
+    ]
+    version_trend = [
+        row for row in rows
+        if row.get("section") == "Version_Decomposition"
+        and row.get("subsection") == "Trend"
     ]
 
     mechanism_user = [
@@ -246,6 +259,7 @@ def main() -> None:
     <a href="#subreddit">2. Subreddit</a>
     <a href="#ai-product">3. AI Product</a>
     <a href="#mechanism">4. Mechanism</a>
+    <a href="#version-decomposition">5. Version Decomposition</a>
   </nav>
 
   <main>
@@ -293,14 +307,6 @@ def main() -> None:
         {selector_gallery(products, "product-selector", "Select AI product:")}
       </div>
 
-      <div class="subsection">
-        <h3>3.3 Version Decomposition</h3>
-        {selector_gallery(
-            version_decomposition,
-            "version-decomposition-selector",
-            "Select analysis:",
-        )}
-      </div>
     </section>
 
     <section id="mechanism" class="main-section">
@@ -316,6 +322,48 @@ def main() -> None:
         {static_gallery(mechanism_community)}
       </div>
     </section>
+
+    <section id="version-decomposition" class="main-section">
+      <h2>5. Version Decomposition</h2>
+
+      <div class="subsection">
+        <h3>5.1 Mean Score</h3>
+        {selector_gallery(
+            version_mean_score,
+            "version-mean-score-selector",
+            "Select AI product:",
+        )}
+      </div>
+
+      <div class="subsection">
+        <h3>5.2 Trend</h3>
+        {selector_gallery(
+            version_trend,
+            "version-trend-selector",
+            "Select AI product:",
+        )}
+      </div>
+
+      <div class="subsection">
+        <h3>5.3 Regression</h3>
+        {static_gallery(version_regression_standalone)}
+
+        <h3 class="nested-heading">Model-version Sentiment Differences</h3>
+        {selector_gallery(
+            version_level_differences,
+            "version-level-difference-selector",
+            "Select AI product:",
+        )}
+
+        <h3 class="nested-heading">Model-specific Sentiment Trends</h3>
+        {selector_gallery(
+            version_specific_trends,
+            "version-specific-trend-selector",
+            "Select AI product:",
+        )}
+      </div>
+    </section>
+
   </main>
 
   <footer>Generated from figure_catalog.csv</footer>
