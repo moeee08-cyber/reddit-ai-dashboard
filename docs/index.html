@@ -316,6 +316,85 @@
     </div></div>
     
       </div>
+
+      <div class="subsection">
+        <h3>3.3 Version Decomposition</h3>
+        
+    <div class="selector-row">
+      <label for="version-decomposition-selector">Select analysis:</label>
+      <select id="version-decomposition-selector" onchange="switchFigure('version-decomposition-selector', this.value)">
+        <option value="0">Product trends</option><option value="1">Shared model-age trends</option><option value="2">GPT level differences</option><option value="3">Claude level differences</option><option value="4">Gemini level differences</option><option value="5">Stable Diffusion level differences</option><option value="6">Llama level differences</option><option value="7">GPT model-specific trends</option><option value="8">Claude model-specific trends</option><option value="9">Gemini model-specific trends</option><option value="10">Llama model-specific trends</option>
+      </select>
+    </div>
+    <div><div id="version-decomposition-selector-figure-0" class="selectable-figure version-decomposition-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Product-level sentiment trends controlling for model-version presence</h3><span class="badge">effect</span></div>
+      <p>Annual change in overall product sentiment from separate regressions controlling for model-version presence with HAC standard errors.</p>
+      <img src="figures/version decomposition/product_level_hac_sentiment_trends.png" alt="Product-level sentiment trends controlling for model-version presence" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-1" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Shared model-week sentiment trends by AI product</h3><span class="badge">effect</span></div>
+      <p>Weekly model-version sentiment trend within each product controlling for overall product sentiment and version-level differences.</p>
+      <img src="figures/version decomposition/shared_model_week_sentiment_trends_by_product.png" alt="Shared model-week sentiment trends by AI product" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-2" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>GPT model-version sentiment differences</h3><span class="badge">effect</span></div>
+      <p>GPT model-version sentiment-level differences relative to the product reference model controlling for overall sentiment and model week.</p>
+      <img src="figures/version decomposition/model_version_sentiment_difference_gpt.png" alt="GPT model-version sentiment differences" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-3" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Claude model-version sentiment differences</h3><span class="badge">effect</span></div>
+      <p>Claude model-version sentiment-level differences relative to the product reference model controlling for overall sentiment and model week.</p>
+      <img src="figures/version decomposition/model_version_sentiment_difference_claude.png" alt="Claude model-version sentiment differences" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-4" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Gemini model-version sentiment differences</h3><span class="badge">effect</span></div>
+      <p>Gemini model-version sentiment-level differences relative to the product reference model controlling for overall sentiment and model week.</p>
+      <img src="figures/version decomposition/model_version_sentiment_difference_gemini.png" alt="Gemini model-version sentiment differences" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-5" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Stable Diffusion model-version sentiment differences</h3><span class="badge">effect</span></div>
+      <p>Stable Diffusion model-version sentiment-level differences relative to the product reference model controlling for overall sentiment and model week.</p>
+      <img src="figures/version decomposition/model_version_sentiment_difference_stable_diffusion.png" alt="Stable Diffusion model-version sentiment differences" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-6" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Llama model-version sentiment differences</h3><span class="badge">effect</span></div>
+      <p>Llama model-version sentiment-level differences relative to the product reference model controlling for overall sentiment and model week.</p>
+      <img src="figures/version decomposition/model_version_sentiment_difference_llama.png" alt="Llama model-version sentiment differences" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-7" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>GPT model-specific sentiment trends</h3><span class="badge">effect</span></div>
+      <p>Version-specific weekly GPT sentiment slopes from the interaction model with HC3 confidence intervals.</p>
+      <img src="figures/version decomposition/model_specific_sentiment_trends_gpt.png" alt="GPT model-specific sentiment trends" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-8" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Claude model-specific sentiment trends</h3><span class="badge">effect</span></div>
+      <p>Version-specific weekly Claude sentiment slopes from the interaction model with HC3 confidence intervals.</p>
+      <img src="figures/version decomposition/model_specific_sentiment_trends_claude.png" alt="Claude model-specific sentiment trends" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-9" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Gemini model-specific sentiment trends</h3><span class="badge">effect</span></div>
+      <p>Version-specific weekly Gemini sentiment slopes from the interaction model with HC3 confidence intervals.</p>
+      <img src="figures/version decomposition/model_specific_sentiment_trends_gemini.png" alt="Gemini model-specific sentiment trends" loading="lazy">
+    </article>
+    </div><div id="version-decomposition-selector-figure-10" class="selectable-figure version-decomposition-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Llama model-specific sentiment trends</h3><span class="badge">effect</span></div>
+      <p>Version-specific weekly Llama sentiment slopes from the interaction model with HC3 confidence intervals.</p>
+      <img src="figures/version decomposition/model_specific_sentiment_trends_llama.png" alt="Llama model-specific sentiment trends" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
     </section>
 
     <section id="mechanism" class="main-section">

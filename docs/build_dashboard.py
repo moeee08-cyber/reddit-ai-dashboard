@@ -175,6 +175,11 @@ def main() -> None:
         if row.get("section") == "AI Product"
         and row.get("subsection") == "Product"
     ]
+    version_decomposition = [
+        row for row in rows
+        if row.get("section") == "AI Product"
+        and row.get("subsection") == "Version_Decomposition"
+    ]
 
     mechanism_user = [
         row for row in rows
@@ -286,6 +291,15 @@ def main() -> None:
       <div class="subsection">
         <h3>3.2 Product</h3>
         {selector_gallery(products, "product-selector", "Select AI product:")}
+      </div>
+
+      <div class="subsection">
+        <h3>3.3 Version Decomposition</h3>
+        {selector_gallery(
+            version_decomposition,
+            "version-decomposition-selector",
+            "Select analysis:",
+        )}
       </div>
     </section>
 
