@@ -193,6 +193,16 @@ def main() -> None:
         if row.get("section") == "Version_Decomposition"
         and row.get("subsection") == "Trend"
     ]
+    version_release_period_trend = [
+        row for row in rows
+        if row.get("section") == "Version_Decomposition"
+        and row.get("subsection") == "Release Period Trend"
+    ]
+    version_release_period_regression = [
+        row for row in rows
+        if row.get("section") == "Version_Decomposition"
+        and row.get("subsection") == "Release Period Regression"
+    ]
 
     mechanism_user = [
         row for row in rows
@@ -231,7 +241,7 @@ def main() -> None:
     .figure-card {{ padding: 17px; border: 1px solid #dce3e7; border-radius: 9px; background: #fff; }}
     .figure-title-row {{ display: flex; align-items: start; justify-content: space-between; gap: 12px; }}
     .figure-card h3 {{ margin: 0; font-size: 17px; }}
-    .figure-card p {{ min-height: 2.5em; color: #607078; line-height: 1.45; }}
+    .figure-card p {{ min-height: 2.5em; color: #607078; line-height: 1.45; white-space: pre-line; }}
     .figure-card img {{ display: block; width: 100%; height: auto; border-radius: 4px; }}
     .badge {{ flex: 0 0 auto; padding: 4px 8px; border-radius: 12px; background: #e7eef5; color: #355c7d; font-size: 12px; }}
     .selector-row {{ display: flex; align-items: center; gap: 13px; margin: 0 0 20px; padding: 15px; background: #eef2f4; border-radius: 8px; }}
@@ -361,6 +371,20 @@ def main() -> None:
             "version-specific-trend-selector",
             "Select AI product:",
         )}
+      </div>
+
+      <div class="subsection">
+        <h3>5.4 Release-period Decomposition</h3>
+
+        <h3 class="nested-heading">Weekly Trends by Release Period</h3>
+        {selector_gallery(
+            version_release_period_trend,
+            "release-period-trend-selector",
+            "Select AI product:",
+        )}
+
+        <h3 class="nested-heading">Release-period Regression Effects</h3>
+        {static_gallery(version_release_period_regression)}
       </div>
     </section>
 
