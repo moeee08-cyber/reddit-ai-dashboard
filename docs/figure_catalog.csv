@@ -76,10 +76,10 @@ model-version trend regressions
 
 # mean_score ~ overall_mean + model_week + C(matched_model, Treatment(reference=...))
 ",,9/3/2026,add
-Version_Decomposition,Release Period Regression,effect,Model3: Product-level pre-release sentiment effects,figures/version decomposition/version_decomposition_2/product_level_pre_release_sentiment_effects.png,,5,"# Within each product:
+Version_Decomposition,Release Period Regression,effect,Model3: Product-level pre-release sentiment effects,figures/version decomposition/version_decomposition_2/product_level_pre_release_sentiment_effects.png,,6,"# Within each product:
 # mean_score ~ overall_mean + model_week + C(matched_model, Treatment(reference=...))
 + C(release_period, Treatment(reference='post'))",,9/3/2026,add
-Version_Decomposition,Release Period Regression,effect,Model4: Model-specific pre-release sentiment effects,figures/version decomposition/version_decomposition_2/model_specific_pre_release_sentiment_effects.png,,6,"# Within each product:
+Version_Decomposition,Release Period Regression,effect,Model4: Model-specific pre-release sentiment effects,figures/version decomposition/version_decomposition_2/model_specific_pre_release_sentiment_effects.png,,7,"# Within each product:
 # mean_score ~ overall_mean + model_week
  + C(matched_model, Treatment(reference=...))
  + pre_release

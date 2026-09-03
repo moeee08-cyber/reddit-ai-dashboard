@@ -635,17 +635,17 @@ model-version trend regressions
     </article>
     
     <article class="figure-card">
+      <div class="figure-title-row"><h3>Model2: interaction: Model x release periods</h3><span class="badge">effect</span></div>
+      <p>combined pre/post: add model_week × period and matched_model × period</p>
+      <img src="figures/version decomposition/version_decomposition_2/model_differences_across_release_periods.png" alt="Model2: interaction: Model x release periods" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
       <div class="figure-title-row"><h3>Model3: Product-level pre-release sentiment effects</h3><span class="badge">effect</span></div>
       <p># Within each product:
 # mean_score ~ overall_mean + model_week + C(matched_model, Treatment(reference=...))
 + C(release_period, Treatment(reference=&#x27;post&#x27;))</p>
       <img src="figures/version decomposition/version_decomposition_2/product_level_pre_release_sentiment_effects.png" alt="Model3: Product-level pre-release sentiment effects" loading="lazy">
-    </article>
-    
-    <article class="figure-card">
-      <div class="figure-title-row"><h3>Model2: interaction: Model x release periods</h3><span class="badge">effect</span></div>
-      <p>combined pre/post: add model_week × period and matched_model × period</p>
-      <img src="figures/version decomposition/version_decomposition_2/model_differences_across_release_periods.png" alt="Model2: interaction: Model x release periods" loading="lazy">
     </article>
     
     <article class="figure-card">
