@@ -214,6 +214,46 @@ def main() -> None:
         if row.get("section") == "Mechanism"
         and row.get("subsection") == "Community_Cohort"
     ]
+    control_general_overview = [
+        row for row in rows
+        if row.get("section") == "Control_General"
+        and row.get("subsection") == "Overview"
+    ]
+    control_general_community = [
+        row for row in rows
+        if row.get("section") == "Control_General"
+        and row.get("subsection") == "Community"
+    ]
+    control_general_lifecycle = [
+        row for row in rows
+        if row.get("section") == "Control_General"
+        and row.get("subsection") == "Lifecycle"
+    ]
+    control_individual_overview = [
+        row for row in rows
+        if row.get("section") == "Control_Individual"
+        and row.get("subsection") == "Overview"
+    ]
+    control_individual_monthly_count = [
+        row for row in rows
+        if row.get("section") == "Control_Individual"
+        and row.get("subsection") == "Monthly Count"
+    ]
+    control_individual_monthly_sentiment = [
+        row for row in rows
+        if row.get("section") == "Control_Individual"
+        and row.get("subsection") == "Monthly Sentiment"
+    ]
+    control_individual_monthly_share = [
+        row for row in rows
+        if row.get("section") == "Control_Individual"
+        and row.get("subsection") == "Monthly Sentiment Share"
+    ]
+    control_individual_annual = [
+        row for row in rows
+        if row.get("section") == "Control_Individual"
+        and row.get("subsection") == "Annual"
+    ]
 
     page = f"""<!doctype html>
 <html lang="en">
@@ -270,6 +310,8 @@ def main() -> None:
     <a href="#ai-product">3. AI Product</a>
     <a href="#mechanism">4. Mechanism</a>
     <a href="#version-decomposition">5. Version Decomposition</a>
+    <a href="#control-general">6. Control General</a>
+    <a href="#control-individual">7. Control Individual</a>
   </nav>
 
   <main>
@@ -385,6 +427,66 @@ def main() -> None:
 
         <h3 class="nested-heading">Release-period Regression Effects</h3>
         {static_gallery(version_release_period_regression)}
+      </div>
+    </section>
+
+    <section id="control-general" class="main-section">
+      <h2>6. Control General</h2>
+
+      <div class="subsection">
+        <h3>6.1 Overall Monthly Trends</h3>
+        {static_gallery(control_general_overview)}
+      </div>
+
+      <div class="subsection">
+        <h3>6.2 Community Characteristics</h3>
+        {static_gallery(control_general_community)}
+      </div>
+
+      <div class="subsection">
+        <h3>6.3 User Lifecycle</h3>
+        {static_gallery(control_general_lifecycle)}
+      </div>
+    </section>
+
+    <section id="control-individual" class="main-section">
+      <h2>7. Control Individual</h2>
+
+      <div class="subsection">
+        <h3>7.1 Overview</h3>
+        {static_gallery(control_individual_overview)}
+      </div>
+
+      <div class="subsection">
+        <h3>7.2 Monthly Matched-sentence Count</h3>
+        {selector_gallery(
+            control_individual_monthly_count,
+            "control-individual-count-selector",
+            "Select page:",
+        )}
+      </div>
+
+      <div class="subsection">
+        <h3>7.3 Monthly Mean Sentiment</h3>
+        {selector_gallery(
+            control_individual_monthly_sentiment,
+            "control-individual-sentiment-selector",
+            "Select page:",
+        )}
+      </div>
+
+      <div class="subsection">
+        <h3>7.4 Monthly Sentiment-label Shares</h3>
+        {selector_gallery(
+            control_individual_monthly_share,
+            "control-individual-share-selector",
+            "Select page:",
+        )}
+      </div>
+
+      <div class="subsection">
+        <h3>7.5 Annual Overview</h3>
+        {static_gallery(control_individual_annual)}
       </div>
     </section>
 

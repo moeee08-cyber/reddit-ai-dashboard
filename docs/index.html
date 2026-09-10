@@ -53,6 +53,8 @@
     <a href="#ai-product">3. AI Product</a>
     <a href="#mechanism">4. Mechanism</a>
     <a href="#version-decomposition">5. Version Decomposition</a>
+    <a href="#control-general">6. Control General</a>
+    <a href="#control-individual">7. Control Individual</a>
   </nav>
 
   <main>
@@ -656,6 +658,288 @@ model-version trend regressions
  + pre_release
  + matched_model × pre_release</p>
       <img src="figures/version decomposition/version_decomposition_2/model_specific_pre_release_sentiment_effects.png" alt="Model4: Model-specific pre-release sentiment effects" loading="lazy">
+    </article>
+    </div>
+      </div>
+    </section>
+
+    <section id="control-general" class="main-section">
+      <h2>6. Control General</h2>
+
+      <div class="subsection">
+        <h3>6.1 Overall Monthly Trends</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Control sample monthly post and comment count</h3><span class="badge">count</span></div>
+      <p>Monthly number of retained control-sample posts and comments, shown separately by datatype.</p>
+      <img src="figures/control_general/monthly_control_sentence_count.png" alt="Control sample monthly post and comment count" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Control sample monthly average body VADER sentiment</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean full-body VADER compound sentiment for the control sample, shown separately for posts and comments.</p>
+      <img src="figures/control_general/monthly_control_average_body_vader_sentiment.png" alt="Control sample monthly average body VADER sentiment" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Control sample monthly body-VADER label shares</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares, displayed separately for comments and posts.</p>
+      <img src="figures/control_general/overall_monthly_sentiment_shares.png" alt="Control sample monthly body-VADER label shares" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>6.2 Community Characteristics</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community characteristics and body sentiment</h3><span class="badge">sentiment</span></div>
+      <p>Community-level relationships between mean body sentiment and age, gender, partisanship, affluence, subreddit size and discussion frequency, with linear fits and Spearman correlations.</p>
+      <img src="figures/control_general/community_correlations_six_panels.png" alt="Community characteristics and body sentiment" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community sentiment by negative versus positive partisanship</h3><span class="badge">sentiment</span></div>
+      <p>Community sentiment across standardized partisanship, using separate LOWESS curves below and above zero after outlier removal.</p>
+      <img src="figures/control_general/partisanship_separate_lowess_curves.png" alt="Community sentiment by negative versus positive partisanship" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community characteristics and body sentiment by year</h3><span class="badge">sentiment</span></div>
+      <p>Year-specific community relationships with body sentiment; partisanship uses LOWESS and the other characteristics use linear fits with 95 percent confidence intervals.</p>
+      <img src="figures/control_general/community_attributes_by_year_scatter_fits.png" alt="Community characteristics and body sentiment by year" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>6.3 User Lifecycle</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Control-sample sentiment and user lifecycle composition</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body sentiment and engagement composition for new, old and exiting users; the first month is left-censored and the final month is excluded.</p>
+      <img src="figures/control_general/monthly_user_lifecycle_sentiment_and_composition.png" alt="Control-sample sentiment and user lifecycle composition" loading="lazy">
+    </article>
+    </div>
+      </div>
+    </section>
+
+    <section id="control-individual" class="main-section">
+      <h2>7. Control Individual</h2>
+
+      <div class="subsection">
+        <h3>7.1 Overview</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Control sample monthly person-matched sentence count</h3><span class="badge">count</span></div>
+      <p>Monthly number of control-sample person-matched sentences, separated into comments and posts.</p>
+      <img src="figures/control_individual/monthly_control_person_matched_sentence_count.png" alt="Control sample monthly person-matched sentence count" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Control sample monthly average body VADER sentiment</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for control-sample person matches, separated into comments and posts.</p>
+      <img src="figures/control_individual/monthly_control_person_average_body_vader_sentiment.png" alt="Control sample monthly average body VADER sentiment" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>7.2 Monthly Matched-sentence Count</h3>
+        
+    <div class="selector-row">
+      <label for="control-individual-count-selector">Select page:</label>
+      <select id="control-individual-count-selector" onchange="switchFigure('control-individual-count-selector', this.value)">
+        <option value="0">Page 1</option><option value="1">Page 2</option><option value="2">Page 3</option><option value="3">Page 4</option><option value="4">Page 5</option><option value="5">Page 6</option><option value="6">Page 7</option><option value="7">Page 8</option>
+      </select>
+    </div>
+    <div><div id="control-individual-count-selector-figure-0" class="selectable-figure control-individual-count-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 1</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_01.png" alt="Monthly matched-sentence count by individual — page 1" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-1" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 2</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_02.png" alt="Monthly matched-sentence count by individual — page 2" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-2" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 3</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_03.png" alt="Monthly matched-sentence count by individual — page 3" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-3" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 4</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_04.png" alt="Monthly matched-sentence count by individual — page 4" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-4" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 5</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_05.png" alt="Monthly matched-sentence count by individual — page 5" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-5" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 6</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_06.png" alt="Monthly matched-sentence count by individual — page 6" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-6" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 7</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_07.png" alt="Monthly matched-sentence count by individual — page 7" loading="lazy">
+    </article>
+    </div><div id="control-individual-count-selector-figure-7" class="selectable-figure control-individual-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by individual — page 8</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for up to 12 individuals; comments and posts are shown separately and y axes are independent.</p>
+      <img src="figures/control_individual/monthly_sentence_count_page_08.png" alt="Monthly matched-sentence count by individual — page 8" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+
+      <div class="subsection">
+        <h3>7.3 Monthly Mean Sentiment</h3>
+        
+    <div class="selector-row">
+      <label for="control-individual-sentiment-selector">Select page:</label>
+      <select id="control-individual-sentiment-selector" onchange="switchFigure('control-individual-sentiment-selector', this.value)">
+        <option value="0">Page 1</option><option value="1">Page 2</option><option value="2">Page 3</option><option value="3">Page 4</option><option value="4">Page 5</option><option value="5">Page 6</option><option value="6">Page 7</option><option value="7">Page 8</option>
+      </select>
+    </div>
+    <div><div id="control-individual-sentiment-selector-figure-0" class="selectable-figure control-individual-sentiment-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 1</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_01.png" alt="Monthly mean body VADER by individual — page 1" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-1" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 2</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_02.png" alt="Monthly mean body VADER by individual — page 2" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-2" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 3</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_03.png" alt="Monthly mean body VADER by individual — page 3" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-3" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 4</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_04.png" alt="Monthly mean body VADER by individual — page 4" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-4" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 5</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_05.png" alt="Monthly mean body VADER by individual — page 5" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-5" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 6</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_06.png" alt="Monthly mean body VADER by individual — page 6" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-6" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 7</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_07.png" alt="Monthly mean body VADER by individual — page 7" loading="lazy">
+    </article>
+    </div><div id="control-individual-sentiment-selector-figure-7" class="selectable-figure control-individual-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by individual — page 8</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for up to 12 individuals; comments and posts are shown separately on shared y axes.</p>
+      <img src="figures/control_individual/monthly_mean_compound_page_08.png" alt="Monthly mean body VADER by individual — page 8" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+
+      <div class="subsection">
+        <h3>7.4 Monthly Sentiment-label Shares</h3>
+        
+    <div class="selector-row">
+      <label for="control-individual-share-selector">Select page:</label>
+      <select id="control-individual-share-selector" onchange="switchFigure('control-individual-share-selector', this.value)">
+        <option value="0">Page 1</option><option value="1">Page 2</option><option value="2">Page 3</option><option value="3">Page 4</option><option value="4">Page 5</option><option value="5">Page 6</option><option value="6">Page 7</option><option value="7">Page 8</option>
+      </select>
+    </div>
+    <div><div id="control-individual-share-selector-figure-0" class="selectable-figure control-individual-share-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 1</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_01.png" alt="Monthly sentiment-label shares by individual — page 1" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-1" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 2</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_02.png" alt="Monthly sentiment-label shares by individual — page 2" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-2" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 3</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_03.png" alt="Monthly sentiment-label shares by individual — page 3" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-3" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 4</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_04.png" alt="Monthly sentiment-label shares by individual — page 4" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-4" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 5</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_05.png" alt="Monthly sentiment-label shares by individual — page 5" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-5" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 6</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_06.png" alt="Monthly sentiment-label shares by individual — page 6" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-6" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 7</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_07.png" alt="Monthly sentiment-label shares by individual — page 7" loading="lazy">
+    </article>
+    </div><div id="control-individual-share-selector-figure-7" class="selectable-figure control-individual-share-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly sentiment-label shares by individual — page 8</h3><span class="badge">sentiment</span></div>
+      <p>Monthly negative, neutral and positive body-VADER shares for up to 12 individuals; comments and posts are pooled.</p>
+      <img src="figures/control_individual/monthly_sentiment_shares_page_08.png" alt="Monthly sentiment-label shares by individual — page 8" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+
+      <div class="subsection">
+        <h3>7.5 Annual Overview</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Yearly control-individual volume and sentiment heatmaps</h3><span class="badge">count</span></div>
+      <p>Annualized matched-sentence volume and mean body VADER sentiment for all individuals; low-sample sentiment cells are masked.</p>
+      <img src="figures/control_individual/yearly_all_individuals_heatmaps.png" alt="Yearly control-individual volume and sentiment heatmaps" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual control-individual sentiment rank heatmap</h3><span class="badge">sentiment</span></div>
+      <p>Cross-year sentiment ranks for all individuals; rank 1 is the highest mean sentiment, asterisks flag low-sample estimates and gray cells indicate missing data.</p>
+      <img src="figures/control_individual/annual_sentiment_rank_heatmap.png" alt="Annual control-individual sentiment rank heatmap" loading="lazy">
     </article>
     </div>
       </div>
