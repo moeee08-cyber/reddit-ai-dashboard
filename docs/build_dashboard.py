@@ -254,6 +254,21 @@ def main() -> None:
         if row.get("section") == "Control_Individual"
         and row.get("subsection") == "Annual"
     ]
+    control_other_products_benchmark = [
+        row for row in rows
+        if row.get("section") == "Control_Other_Products"
+        and row.get("subsection") == "Benchmark"
+    ]
+    control_other_products_count = [
+        row for row in rows
+        if row.get("section") == "Control_Other_Products"
+        and row.get("subsection") == "Monthly Count"
+    ]
+    control_other_products_sentiment = [
+        row for row in rows
+        if row.get("section") == "Control_Other_Products"
+        and row.get("subsection") == "Monthly Sentiment"
+    ]
 
     page = f"""<!doctype html>
 <html lang="en">
@@ -312,6 +327,7 @@ def main() -> None:
     <a href="#version-decomposition">5. Version Decomposition</a>
     <a href="#control-general">6. Control General</a>
     <a href="#control-individual">7. Control Individual</a>
+    <a href="#control-other-products">8. Other Tech Products</a>
   </nav>
 
   <main>
@@ -487,6 +503,33 @@ def main() -> None:
       <div class="subsection">
         <h3>7.5 Annual Overview</h3>
         {static_gallery(control_individual_annual)}
+      </div>
+    </section>
+
+    <section id="control-other-products" class="main-section">
+      <h2>8. Other Tech Products</h2>
+
+      <div class="subsection">
+        <h3>8.1 Comparisons with AI Benchmarks</h3>
+        {static_gallery(control_other_products_benchmark)}
+      </div>
+
+      <div class="subsection">
+        <h3>8.2 Monthly Product Volume</h3>
+        {selector_gallery(
+            control_other_products_count,
+            "control-other-products-count-selector",
+            "Select page:",
+        )}
+      </div>
+
+      <div class="subsection">
+        <h3>8.3 Monthly Product Sentiment</h3>
+        {selector_gallery(
+            control_other_products_sentiment,
+            "control-other-products-sentiment-selector",
+            "Select page:",
+        )}
       </div>
     </section>
 

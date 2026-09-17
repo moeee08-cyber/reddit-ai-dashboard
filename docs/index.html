@@ -55,6 +55,7 @@
     <a href="#version-decomposition">5. Version Decomposition</a>
     <a href="#control-general">6. Control General</a>
     <a href="#control-individual">7. Control Individual</a>
+    <a href="#control-other-products">8. Other Tech Products</a>
   </nav>
 
   <main>
@@ -942,6 +943,95 @@ model-version trend regressions
       <img src="figures/control_individual/annual_sentiment_rank_heatmap.png" alt="Annual control-individual sentiment rank heatmap" loading="lazy">
     </article>
     </div>
+      </div>
+    </section>
+
+    <section id="control-other-products" class="main-section">
+      <h2>8. Other Tech Products</h2>
+
+      <div class="subsection">
+        <h3>8.1 Comparisons with AI Benchmarks</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly non-AI tech-product trends with AI sentiment benchmark</h3><span class="badge">sentiment</span></div>
+      <p>Monthly non-AI tech-product matched-sentence volume by datatype and mean body sentiment by datatype, with pooled AI-discussion sentence sentiment as a benchmark.</p>
+      <img src="figures/control_other_products/overall_monthly_volume_sentiment_with_ai_benchmark.png" alt="Monthly non-AI tech-product trends with AI sentiment benchmark" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual sentiment ranking of tech products and AI benchmarks</h3><span class="badge">sentiment</span></div>
+      <p>Within-year ranking by mean sentiment. Tech products use body VADER and AI benchmarks use sentence VADER, so absolute levels are descriptive; AI names are orange and bold.</p>
+      <img src="figures/control_other_products/annual_absolute_sentiment_with_ai_benchmark.png" alt="Annual sentiment ranking of tech products and AI benchmarks" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Discussion frequency and sentiment with AI trajectories</h3><span class="badge">sentiment</span></div>
+      <p>Non-AI tech products are shown as 2022–2026 period averages, while AI benchmarks follow year-by-year frequency and sentiment paths toward the latest observation.</p>
+      <img src="figures/control_other_products/discussion_frequency_vs_sentiment_with_ai_benchmark.png" alt="Discussion frequency and sentiment with AI trajectories" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>8.2 Monthly Product Volume</h3>
+        
+    <div class="selector-row">
+      <label for="control-other-products-count-selector">Select page:</label>
+      <select id="control-other-products-count-selector" onchange="switchFigure('control-other-products-count-selector', this.value)">
+        <option value="0">Page 1</option><option value="1">Page 2</option><option value="2">Page 3</option>
+      </select>
+    </div>
+    <div><div id="control-other-products-count-selector-figure-0" class="selectable-figure control-other-products-count-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by tech product — page 1</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for non-AI tech products, with comments and posts shown separately and independent y axes.</p>
+      <img src="figures/control_other_products/monthly_sentence_count_page_01.png" alt="Monthly matched-sentence count by tech product — page 1" loading="lazy">
+    </article>
+    </div><div id="control-other-products-count-selector-figure-1" class="selectable-figure control-other-products-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by tech product — page 2</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for non-AI tech products, with comments and posts shown separately and independent y axes.</p>
+      <img src="figures/control_other_products/monthly_sentence_count_page_02.png" alt="Monthly matched-sentence count by tech product — page 2" loading="lazy">
+    </article>
+    </div><div id="control-other-products-count-selector-figure-2" class="selectable-figure control-other-products-count-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly matched-sentence count by tech product — page 3</h3><span class="badge">count</span></div>
+      <p>Monthly matched-sentence counts for non-AI tech products, with comments and posts shown separately and independent y axes.</p>
+      <img src="figures/control_other_products/monthly_sentence_count_page_03.png" alt="Monthly matched-sentence count by tech product — page 3" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+
+      <div class="subsection">
+        <h3>8.3 Monthly Product Sentiment</h3>
+        
+    <div class="selector-row">
+      <label for="control-other-products-sentiment-selector">Select page:</label>
+      <select id="control-other-products-sentiment-selector" onchange="switchFigure('control-other-products-sentiment-selector', this.value)">
+        <option value="0">Page 1</option><option value="1">Page 2</option><option value="2">Page 3</option>
+      </select>
+    </div>
+    <div><div id="control-other-products-sentiment-selector-figure-0" class="selectable-figure control-other-products-sentiment-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by tech product — page 1</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for non-AI tech products, with comments and posts shown separately on shared y axes.</p>
+      <img src="figures/control_other_products/monthly_mean_compound_page_01.png" alt="Monthly mean body VADER by tech product — page 1" loading="lazy">
+    </article>
+    </div><div id="control-other-products-sentiment-selector-figure-1" class="selectable-figure control-other-products-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by tech product — page 2</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for non-AI tech products, with comments and posts shown separately on shared y axes.</p>
+      <img src="figures/control_other_products/monthly_mean_compound_page_02.png" alt="Monthly mean body VADER by tech product — page 2" loading="lazy">
+    </article>
+    </div><div id="control-other-products-sentiment-selector-figure-2" class="selectable-figure control-other-products-sentiment-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean body VADER by tech product — page 3</h3><span class="badge">sentiment</span></div>
+      <p>Monthly mean body-level VADER compound sentiment for non-AI tech products, with comments and posts shown separately on shared y axes.</p>
+      <img src="figures/control_other_products/monthly_mean_compound_page_03.png" alt="Monthly mean body VADER by tech product — page 3" loading="lazy">
+    </article>
+    </div></div>
+    
       </div>
     </section>
 
