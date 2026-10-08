@@ -203,6 +203,21 @@ def main() -> None:
         if row.get("section") == "Version_Decomposition"
         and row.get("subsection") == "Release Period Regression"
     ]
+    go_emotion_overview = [
+        row for row in rows
+        if row.get("section") == "Go Emotion"
+        and row.get("subsection") == "Overview"
+    ]
+    go_emotion_monthly = [
+        row for row in rows
+        if row.get("section") == "Go Emotion"
+        and row.get("subsection") == "Monthly by Emotion"
+    ]
+    go_emotion_annual = [
+        row for row in rows
+        if row.get("section") == "Go Emotion"
+        and row.get("subsection") == "Annual Support"
+    ]
 
     mechanism_user = [
         row for row in rows
@@ -325,9 +340,10 @@ def main() -> None:
     <a href="#ai-product">3. AI Product</a>
     <a href="#mechanism">4. Mechanism</a>
     <a href="#version-decomposition">5. Version Decomposition</a>
-    <a href="#control-general">6. Control General</a>
-    <a href="#control-individual">7. Control Individual</a>
-    <a href="#control-other-products">8. Other Tech Products</a>
+    <a href="#go-emotion">6. Go Emotion</a>
+    <a href="#control-general">7. Control General</a>
+    <a href="#control-individual">8. Control Individual</a>
+    <a href="#control-other-products">9. Other Tech Products</a>
   </nav>
 
   <main>
@@ -446,8 +462,37 @@ def main() -> None:
       </div>
     </section>
 
+    <section id="go-emotion" class="main-section">
+      <h2>6. Go Emotion</h2>
+
+      <div class="subsection">
+        <h3>6.1 Monthly Average by Emotion</h3>
+        {selector_gallery(go_emotion_monthly, "go-emotion-monthly-selector", "Select emotion:")}
+      </div>
+
+      <div class="subsection">
+        <h3>6.2 Trend Correlation Clusters</h3>
+        {static_gallery([row for row in go_emotion_overview if row.get("order") == "2"])}
+      </div>
+
+      <div class="subsection">
+        <h3>6.3 Monthly Direction by Trend Cluster</h3>
+        {static_gallery([row for row in go_emotion_overview if row.get("order") == "3"])}
+      </div>
+
+      <div class="subsection">
+        <h3>6.4 Monthly Scores by Emotion Category</h3>
+        {static_gallery([row for row in go_emotion_overview if row.get("order") == "4"])}
+      </div>
+
+      <div class="subsection">
+        <h3>6.5 Annual Trends in Emotional Support Subreddits</h3>
+        {static_gallery(go_emotion_annual)}
+      </div>
+    </section>
+
     <section id="control-general" class="main-section">
-      <h2>6. Control General</h2>
+      <h2>7. Control General</h2>
 
       <div class="subsection">
         <h3>6.1 Overall Monthly Trends</h3>
@@ -466,7 +511,7 @@ def main() -> None:
     </section>
 
     <section id="control-individual" class="main-section">
-      <h2>7. Control Individual</h2>
+      <h2>8. Control Individual</h2>
 
       <div class="subsection">
         <h3>7.1 Overview</h3>
@@ -507,7 +552,7 @@ def main() -> None:
     </section>
 
     <section id="control-other-products" class="main-section">
-      <h2>8. Other Tech Products</h2>
+      <h2>9. Other Tech Products</h2>
 
       <div class="subsection">
         <h3>8.1 Comparisons with AI Benchmarks</h3>

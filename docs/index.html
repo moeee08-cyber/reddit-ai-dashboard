@@ -53,9 +53,10 @@
     <a href="#ai-product">3. AI Product</a>
     <a href="#mechanism">4. Mechanism</a>
     <a href="#version-decomposition">5. Version Decomposition</a>
-    <a href="#control-general">6. Control General</a>
-    <a href="#control-individual">7. Control Individual</a>
-    <a href="#control-other-products">8. Other Tech Products</a>
+    <a href="#go-emotion">6. Go Emotion</a>
+    <a href="#control-general">7. Control General</a>
+    <a href="#control-individual">8. Control Individual</a>
+    <a href="#control-other-products">9. Other Tech Products</a>
   </nav>
 
   <main>
@@ -664,8 +665,249 @@ model-version trend regressions
       </div>
     </section>
 
+    <section id="go-emotion" class="main-section">
+      <h2>6. Go Emotion</h2>
+
+      <div class="subsection">
+        <h3>6.1 Monthly Average by Emotion</h3>
+        
+    <div class="selector-row">
+      <label for="go-emotion-monthly-selector">Select emotion:</label>
+      <select id="go-emotion-monthly-selector" onchange="switchFigure('go-emotion-monthly-selector', this.value)">
+        <option value="0">Admiration</option><option value="1">Amusement</option><option value="2">Anger</option><option value="3">Annoyance</option><option value="4">Approval</option><option value="5">Caring</option><option value="6">Confusion</option><option value="7">Curiosity</option><option value="8">Desire</option><option value="9">Disappointment</option><option value="10">Disapproval</option><option value="11">Disgust</option><option value="12">Embarrassment</option><option value="13">Excitement</option><option value="14">Fear</option><option value="15">Gratitude</option><option value="16">Grief</option><option value="17">Joy</option><option value="18">Love</option><option value="19">Nervousness</option><option value="20">Optimism</option><option value="21">Pride</option><option value="22">Realization</option><option value="23">Relief</option><option value="24">Remorse</option><option value="25">Sadness</option><option value="26">Surprise</option><option value="27">Neutral</option>
+      </select>
+    </div>
+    <div><div id="go-emotion-monthly-selector-figure-0" class="selectable-figure go-emotion-monthly-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: admiration</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for admiration, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_admiration.png" alt="Monthly GoEmotions score: admiration" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-1" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: amusement</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for amusement, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_amusement.png" alt="Monthly GoEmotions score: amusement" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-2" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: anger</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for anger, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_anger.png" alt="Monthly GoEmotions score: anger" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-3" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: annoyance</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for annoyance, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_annoyance.png" alt="Monthly GoEmotions score: annoyance" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-4" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: approval</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for approval, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_approval.png" alt="Monthly GoEmotions score: approval" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-5" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: caring</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for caring, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_caring.png" alt="Monthly GoEmotions score: caring" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-6" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: confusion</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for confusion, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_confusion.png" alt="Monthly GoEmotions score: confusion" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-7" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: curiosity</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for curiosity, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_curiosity.png" alt="Monthly GoEmotions score: curiosity" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-8" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: desire</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for desire, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_desire.png" alt="Monthly GoEmotions score: desire" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-9" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: disappointment</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for disappointment, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_disappointment.png" alt="Monthly GoEmotions score: disappointment" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-10" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: disapproval</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for disapproval, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_disapproval.png" alt="Monthly GoEmotions score: disapproval" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-11" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: disgust</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for disgust, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_disgust.png" alt="Monthly GoEmotions score: disgust" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-12" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: embarrassment</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for embarrassment, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_embarrassment.png" alt="Monthly GoEmotions score: embarrassment" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-13" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: excitement</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for excitement, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_excitement.png" alt="Monthly GoEmotions score: excitement" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-14" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: fear</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for fear, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_fear.png" alt="Monthly GoEmotions score: fear" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-15" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: gratitude</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for gratitude, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_gratitude.png" alt="Monthly GoEmotions score: gratitude" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-16" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: grief</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for grief, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_grief.png" alt="Monthly GoEmotions score: grief" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-17" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: joy</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for joy, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_joy.png" alt="Monthly GoEmotions score: joy" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-18" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: love</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for love, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_love.png" alt="Monthly GoEmotions score: love" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-19" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: nervousness</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for nervousness, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_nervousness.png" alt="Monthly GoEmotions score: nervousness" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-20" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: optimism</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for optimism, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_optimism.png" alt="Monthly GoEmotions score: optimism" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-21" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: pride</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for pride, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_pride.png" alt="Monthly GoEmotions score: pride" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-22" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: realization</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for realization, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_realization.png" alt="Monthly GoEmotions score: realization" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-23" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: relief</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for relief, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_relief.png" alt="Monthly GoEmotions score: relief" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-24" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: remorse</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for remorse, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_remorse.png" alt="Monthly GoEmotions score: remorse" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-25" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: sadness</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for sadness, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_sadness.png" alt="Monthly GoEmotions score: sadness" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-26" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: surprise</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for surprise, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_surprise.png" alt="Monthly GoEmotions score: surprise" loading="lazy">
+    </article>
+    </div><div id="go-emotion-monthly-selector-figure-27" class="selectable-figure go-emotion-monthly-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions score: neutral</h3><span class="badge">emotion score</span></div>
+      <p>Monthly average GoEmotions score for neutral, from June 2022 through May 2026.</p>
+      <img src="figures/go_emotion/monthly_neutral.png" alt="Monthly GoEmotions score: neutral" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+
+      <div class="subsection">
+        <h3>6.2 Trend Correlation Clusters</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions trend correlation and clusters</h3><span class="badge">emotion score</span></div>
+      <p>Pearson correlations among 48 monthly GoEmotions series; cluster labels show groups with similar trends.</p>
+      <img src="figures/go_emotion/emotion_trend_correlation_clusters.png" alt="Monthly GoEmotions trend correlation and clusters" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>6.3 Monthly Direction by Trend Cluster</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions direction by trend cluster</h3><span class="badge">emotion score</span></div>
+      <p>Monthly mean, centered three-month rolling mean, and fitted linear trend by emotion and trend cluster.</p>
+      <img src="figures/go_emotion/monthly_go_emotion_direction_small_multiples.png" alt="Monthly GoEmotions direction by trend cluster" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>6.4 Monthly Scores by Emotion Category</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly GoEmotions scores by emotion category</h3><span class="badge">emotion score</span></div>
+      <p>Positive, negative, and ambiguous emotion trends on a shared y-axis.</p>
+      <img src="figures/go_emotion/monthly_emotion_categories_shared_y.png" alt="Monthly GoEmotions scores by emotion category" loading="lazy">
+    </article>
+    </div>
+      </div>
+
+      <div class="subsection">
+        <h3>6.5 Annual Trends in Emotional Support Subreddits</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual GoEmotions trends: Positive emotions in Emotional Support subreddits</h3><span class="badge">emotion score</span></div>
+      <p>Annual mean GoEmotions scores for the positive emotion group in Emotional support subreddits.</p>
+      <img src="figures/go_emotion/annual_emotional_support_positive.png" alt="Annual GoEmotions trends: Positive emotions in Emotional Support subreddits" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual GoEmotions trends: Negative emotions in Emotional Support subreddits</h3><span class="badge">emotion score</span></div>
+      <p>Annual mean GoEmotions scores for the negative emotion group in Emotional support subreddits.</p>
+      <img src="figures/go_emotion/annual_emotional_support_negative.png" alt="Annual GoEmotions trends: Negative emotions in Emotional Support subreddits" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual GoEmotions trends: Ambiguous emotions in Emotional Support subreddits</h3><span class="badge">emotion score</span></div>
+      <p>Annual mean GoEmotions scores for the ambiguous emotion group in Emotional support subreddits.</p>
+      <img src="figures/go_emotion/annual_emotional_support_ambiguous.png" alt="Annual GoEmotions trends: Ambiguous emotions in Emotional Support subreddits" loading="lazy">
+    </article>
+    </div>
+      </div>
+    </section>
+
     <section id="control-general" class="main-section">
-      <h2>6. Control General</h2>
+      <h2>7. Control General</h2>
 
       <div class="subsection">
         <h3>6.1 Overall Monthly Trends</h3>
@@ -726,7 +968,7 @@ model-version trend regressions
     </section>
 
     <section id="control-individual" class="main-section">
-      <h2>7. Control Individual</h2>
+      <h2>8. Control Individual</h2>
 
       <div class="subsection">
         <h3>7.1 Overview</h3>
@@ -947,7 +1189,7 @@ model-version trend regressions
     </section>
 
     <section id="control-other-products" class="main-section">
-      <h2>8. Other Tech Products</h2>
+      <h2>9. Other Tech Products</h2>
 
       <div class="subsection">
         <h3>8.1 Comparisons with AI Benchmarks</h3>
