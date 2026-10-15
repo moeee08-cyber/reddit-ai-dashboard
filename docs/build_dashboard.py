@@ -304,6 +304,31 @@ def main() -> None:
         if row.get("section") == "JEV"
         and row.get("subsection") == "Demographic"
     ]
+    go_emotion_target_monthly = [
+        row for row in rows
+        if row.get("section") == "Go Emotion AI Target"
+        and row.get("subsection") == "Monthly by Emotion"
+    ]
+    go_emotion_target_categories = [
+        row for row in rows
+        if row.get("section") == "Go Emotion AI Target"
+        and row.get("subsection") == "Emotion Categories"
+    ]
+    go_emotion_target_direction = [
+        row for row in rows
+        if row.get("section") == "Go Emotion AI Target"
+        and row.get("subsection") == "Monthly Direction"
+    ]
+    go_emotion_target_clusters = [
+        row for row in rows
+        if row.get("section") == "Go Emotion AI Target"
+        and row.get("subsection") == "Trend Clusters"
+    ]
+    go_emotion_target_tests = [
+        row for row in rows
+        if row.get("section") == "Go Emotion AI Target"
+        and row.get("subsection") == "Statistical Tests"
+    ]
 
     page = f"""<!doctype html>
 <html lang="en">
@@ -365,6 +390,7 @@ def main() -> None:
     <a href="#control-individual">8. Control Individual</a>
     <a href="#control-other-products">9. Other Tech Products</a>
     <a href="#jev">10. JEV</a>
+    <a href="#go-emotion-ai-target">11. Go Emotion AI Target</a>
   </nav>
 
   <main>
@@ -616,6 +642,30 @@ def main() -> None:
       <div class="subsection">
         <h3>10.4 Demographic</h3>
         {static_gallery(jev_demographic)}
+      </div>
+    </section>
+
+    <section id="go-emotion-ai-target" class="main-section">
+      <h2>11. GoEmotions AI-target Sample</h2>
+      <div class="subsection">
+        <h3>11.1 Monthly Average by Emotion</h3>
+        {selector_gallery(go_emotion_target_monthly, "go-emotion-target-monthly-selector", "Select emotion:")}
+      </div>
+      <div class="subsection">
+        <h3>11.2 Monthly Trends by Emotion Category</h3>
+        {static_gallery(go_emotion_target_categories)}
+      </div>
+      <div class="subsection">
+        <h3>11.3 Monthly Direction by Trend Cluster</h3>
+        {static_gallery(go_emotion_target_direction)}
+      </div>
+      <div class="subsection">
+        <h3>11.4 Emotion Trends That Move Together</h3>
+        {static_gallery(go_emotion_target_clusters)}
+      </div>
+      <div class="subsection">
+        <h3>11.5 Statistical Tests for Emotion Changes Over Time</h3>
+        {static_gallery(go_emotion_target_tests)}
       </div>
     </section>
 
