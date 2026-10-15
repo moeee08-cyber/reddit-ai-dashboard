@@ -284,6 +284,26 @@ def main() -> None:
         if row.get("section") == "Control_Other_Products"
         and row.get("subsection") == "Monthly Sentiment"
     ]
+    jev_overview = [
+        row for row in rows
+        if row.get("section") == "JEV"
+        and row.get("subsection") == "Overview"
+    ]
+    jev_products = [
+        row for row in rows
+        if row.get("section") == "JEV"
+        and row.get("subsection") == "AI Product"
+    ]
+    jev_user_cohort = [
+        row for row in rows
+        if row.get("section") == "JEV"
+        and row.get("subsection") == "User_Cohort"
+    ]
+    jev_demographic = [
+        row for row in rows
+        if row.get("section") == "JEV"
+        and row.get("subsection") == "Demographic"
+    ]
 
     page = f"""<!doctype html>
 <html lang="en">
@@ -344,6 +364,7 @@ def main() -> None:
     <a href="#control-general">7. Control General</a>
     <a href="#control-individual">8. Control Individual</a>
     <a href="#control-other-products">9. Other Tech Products</a>
+    <a href="#jev">10. JEV</a>
   </nav>
 
   <main>
@@ -575,6 +596,26 @@ def main() -> None:
             "control-other-products-sentiment-selector",
             "Select page:",
         )}
+      </div>
+    </section>
+
+    <section id="jev" class="main-section">
+      <h2>10. JEV Valence</h2>
+      <div class="subsection">
+        <h3>10.1 Monthly and Distribution Overview</h3>
+        {static_gallery(jev_overview)}
+      </div>
+      <div class="subsection">
+        <h3>10.2 AI Product</h3>
+        {selector_gallery(jev_products, "jev-product-selector", "Select AI product:")}
+      </div>
+      <div class="subsection">
+        <h3>10.3 User Cohort</h3>
+        {static_gallery(jev_user_cohort)}
+      </div>
+      <div class="subsection">
+        <h3>10.4 Demographic</h3>
+        {static_gallery(jev_demographic)}
       </div>
     </section>
 

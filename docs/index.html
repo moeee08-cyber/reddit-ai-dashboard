@@ -57,6 +57,7 @@
     <a href="#control-general">7. Control General</a>
     <a href="#control-individual">8. Control Individual</a>
     <a href="#control-other-products">9. Other Tech Products</a>
+    <a href="#jev">10. JEV</a>
   </nav>
 
   <main>
@@ -1274,6 +1275,130 @@ model-version trend regressions
     </article>
     </div></div>
     
+      </div>
+    </section>
+
+    <section id="jev" class="main-section">
+      <h2>10. JEV Valence</h2>
+      <div class="subsection">
+        <h3>10.1 Monthly and Distribution Overview</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly mean JEV valence by scoring scope</h3><span class="badge">JEV valence</span></div>
+      <p>AI-target and whole-sentence mean JEV valence by month.</p>
+      <img src="figures/jfigures_jev/monthly_mean_valence_by_scope.png" alt="Monthly mean JEV valence by scoring scope" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target share</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly share of labeled rows scored for the AI target.</p>
+      <img src="figures/jfigures_jev/monthly_ai_target_share.png" alt="Monthly AI-target share" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>JEV valence distribution by scoring scope</h3><span class="badge">JEV valence</span></div>
+      <p>JEV valence distributions for both scoring scopes.</p>
+      <img src="figures/jfigures_jev/valence_distribution_by_scope.png" alt="JEV valence distribution by scoring scope" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Annual JEV valence by subreddit category and scope</h3><span class="badge">JEV valence</span></div>
+      <p>Annual mean JEV valence by subreddit category and scoring scope.</p>
+      <img src="figures/jfigures_jev/annual_valence_by_category_and_scope.png" alt="Annual JEV valence by subreddit category and scope" loading="lazy">
+    </article>
+    </div>
+      </div>
+      <div class="subsection">
+        <h3>10.2 AI Product</h3>
+        
+    <div class="selector-row">
+      <label for="jev-product-selector">Select AI product:</label>
+      <select id="jev-product-selector" onchange="switchFigure('jev-product-selector', this.value)">
+        <option value="0">ChatGPT</option><option value="1">Claude</option><option value="2">GPT</option><option value="3">Gemini</option><option value="4">Grok</option><option value="5">Stable Diffusion</option><option value="6">Llama</option><option value="7">DeepSeek</option>
+      </select>
+    </div>
+    <div><div id="jev-product-selector-figure-0" class="selectable-figure jev-product-selector-figure" style="display:block">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: ChatGPT</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for ChatGPT.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_chatgpt.png" alt="Monthly AI-target JEV valence: ChatGPT" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-1" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: Claude</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for Claude.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_claude.png" alt="Monthly AI-target JEV valence: Claude" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-2" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: GPT</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for GPT.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_gpt.png" alt="Monthly AI-target JEV valence: GPT" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-3" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: Gemini</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for Gemini.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_gemini.png" alt="Monthly AI-target JEV valence: Gemini" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-4" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: Grok</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for Grok.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_grok.png" alt="Monthly AI-target JEV valence: Grok" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-5" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: Stable Diffusion</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for Stable Diffusion.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_stable_diffusion.png" alt="Monthly AI-target JEV valence: Stable Diffusion" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-6" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: Llama</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for Llama.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_llama.png" alt="Monthly AI-target JEV valence: Llama" loading="lazy">
+    </article>
+    </div><div id="jev-product-selector-figure-7" class="selectable-figure jev-product-selector-figure" style="display:none">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Monthly AI-target JEV valence: DeepSeek</h3><span class="badge">JEV valence</span></div>
+      <p>Monthly AI-target JEV valence for DeepSeek.</p>
+      <img src="figures/jfigures_jev/monthly_jev_valence_deepseek.png" alt="Monthly AI-target JEV valence: DeepSeek" loading="lazy">
+    </article>
+    </div></div>
+    
+      </div>
+      <div class="subsection">
+        <h3>10.3 User Cohort</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>User sentiment and active-user count by first observed year</h3><span class="badge">JEV valence</span></div>
+      <p>Annual AI-target JEV valence and active-user counts by first-observed year.</p>
+      <img src="figures/jfigures_jev/user_first_observed_year_jev_cohort.png" alt="User sentiment and active-user count by first observed year" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>User cohort figure from community cohort output</h3><span class="badge">JEV valence</span></div>
+      <p>The notebook community-cohort output, grouped under User Cohort as requested.</p>
+      <img src="figures/jfigures_jev/user_first_observed_year_jev_cohort_community.png" alt="User cohort figure from community cohort output" loading="lazy">
+    </article>
+    </div>
+      </div>
+      <div class="subsection">
+        <h3>10.4 Demographic</h3>
+        <div class="gallery">
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Full-window demographic correlations after extreme-value removal</h3><span class="badge">JEV valence</span></div>
+      <p>AI-target demographic correlations after removing extreme communities.</p>
+      <img src="figures/jfigures_jev/all_year_demographic_correlations_extreme_values_removed.png" alt="Full-window demographic correlations after extreme-value removal" loading="lazy">
+    </article>
+    
+    <article class="figure-card">
+      <div class="figure-title-row"><h3>Community attributes and AI-target attitudes by year</h3><span class="badge">JEV valence</span></div>
+      <p>Annual Spearman correlations between community attributes and AI-target JEV valence.</p>
+      <img src="figures/jfigures_jev/community_attributes_ai_target_spearman_trend_by_year.png" alt="Community attributes and AI-target attitudes by year" loading="lazy">
+    </article>
+    </div>
       </div>
     </section>
 
