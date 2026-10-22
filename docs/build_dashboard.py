@@ -329,6 +329,23 @@ def main() -> None:
         if row.get("section") == "Go Emotion AI Target"
         and row.get("subsection") == "Statistical Tests"
     ]
+    jev_benchmark_final_product = [
+        row for row in rows
+        if row.get("section") == "JEV Product Celebrity Benchmark"
+        and row.get("subsection") == "Final Product Benchmark"
+    ]
+    jev_benchmark_final_person = [
+        row for row in rows
+        if row.get("section") == "JEV Product Celebrity Benchmark"
+        and row.get("subsection") == "Final Person Benchmark"
+    ]
+    jev_benchmark_other = [
+        row for row in rows
+        if row.get("section") == "JEV Product Celebrity Benchmark"
+        and row.get("subsection") not in {
+            "Final Product Benchmark", "Final Person Benchmark"
+        }
+    ]
 
     page = f"""<!doctype html>
 <html lang="en">
@@ -391,6 +408,7 @@ def main() -> None:
     <a href="#control-other-products">9. Other Tech Products</a>
     <a href="#jev">10. JEV</a>
     <a href="#go-emotion-ai-target">11. Go Emotion AI Target</a>
+    <a href="#jev-product-celebrity-benchmark">12. JEV Product/Celebrity Benchmark</a>
   </nav>
 
   <main>
@@ -666,6 +684,26 @@ def main() -> None:
       <div class="subsection">
         <h3>11.5 Statistical Tests for Emotion Changes Over Time</h3>
         {static_gallery(go_emotion_target_tests)}
+      </div>
+    </section>
+
+    <section id="jev-product-celebrity-benchmark" class="main-section">
+      <h2>12. JEV Product/Celebrity Benchmark</h2>
+      <div class="subsection">
+        <h3>12.1 Product Benchmark — Final Notebook Block</h3>
+        {static_gallery(jev_benchmark_final_product)}
+      </div>
+      <div class="subsection">
+        <h3>12.2 Person Benchmark — Final Notebook Block</h3>
+        {static_gallery(jev_benchmark_final_person)}
+      </div>
+      <div class="subsection">
+        <h3>12.3 Other Product and Benchmark Figures</h3>
+        {static_gallery([r for r in jev_benchmark_other if r.get("subsection", "").startswith("Product")])}
+      </div>
+      <div class="subsection">
+        <h3>12.4 Other Person and Benchmark Figures</h3>
+        {static_gallery([r for r in jev_benchmark_other if r.get("subsection", "").startswith("Person")])}
       </div>
     </section>
 
